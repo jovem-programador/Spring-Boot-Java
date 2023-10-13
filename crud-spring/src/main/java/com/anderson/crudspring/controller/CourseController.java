@@ -27,6 +27,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/api/courses")
 public class CourseController {
 
+    /*
+     * Class que representa o controle da API - chama o service para executar o serviço GET POST PUT DELETE
+    */
+
     private final CourseService courseService;
 
     public CourseController(CourseService courseService) {

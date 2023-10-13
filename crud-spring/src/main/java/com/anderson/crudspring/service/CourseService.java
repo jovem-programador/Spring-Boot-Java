@@ -18,6 +18,10 @@ import jakarta.validation.constraints.Positive;
 @Service
 public class CourseService {
 
+    /*
+     * Class de Serviço da API 
+    */
+
     private final CourseRepository courseRepository;
 
     public CourseService(CourseRepository courseRepository) {
