@@ -15,7 +15,7 @@ public record CourseDTO(
         */
 
         @JsonProperty("_id") long id,
-        @NotBlank @NotNull @Length(min = 5, max = 250) String name,
+        @NotBlank @NotNull @Length(min = 2, max = 250) String name,
         @NotNull @Pattern(regexp = "Back-End|Front-End") @Length(min = 5, max = 250) String category
 
 ) {

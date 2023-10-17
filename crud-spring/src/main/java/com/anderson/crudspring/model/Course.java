@@ -29,13 +29,13 @@ public class Course {
 
     @NotBlank
     @NotNull
-    @Length(min = 5, max = 250)
+    @Length(min = 2, max = 250)
     @Column(length = 250, nullable = false)
     private String name;
 
     @NotNull
     @Length(max = 250)
-    @Pattern(regexp = "Back-End|Front-end")
+    @Pattern(regexp = "Back-End|Front-End")
     @Column(length = 250, nullable = false)
     private String category;
 
