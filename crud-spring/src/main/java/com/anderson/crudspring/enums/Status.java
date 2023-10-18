@@ -1,22 +1,26 @@
 package com.anderson.crudspring.enums;
 
-public enum Category {
-    BACK_END("Back-End"), FRONT_END("Front-End");
+public enum Status {
 
+    // Valores
+    ACTIVE("Ativo"),INACTIVE("Inativo");
+
+    // Var de dados
     private String value;
 
-    private Category(String value) {
+    // Construtor
+    private Status(String value) {
         this.value = value;
     }
 
+    // Metodo GET 
     public String getValue() {
         return value;
     }
 
-    // toString
+    // Metodo toString
     @Override
     public String toString() {
         return value;
     }
-
 }

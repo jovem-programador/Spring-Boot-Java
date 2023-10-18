@@ -5,11 +5,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.anderson.crudspring.dto.CourseDTO;
 import com.anderson.crudspring.dto.mapper.CourseMapper;
-import com.anderson.crudspring.enums.Category;
 import com.anderson.crudspring.exception.RecordNotFoundException;
 import com.anderson.crudspring.repository.CourseRepository;
 
@@ -48,7 +46,7 @@ public class CourseService {
     }
 
     // GET ID
-    public CourseDTO findById(@PathVariable @NotNull @Positive Long id) {
+    public CourseDTO findById(@NotNull @Positive Long id) {
         return courseRepository.findById(id).map(courseMapper::toDTO)
         .orElseThrow(() -> new RecordNotFoundException(id));
     }
@@ -64,7 +62,7 @@ public class CourseService {
         return courseRepository.findById(id).map(recordFound -> {
 
             recordFound.setName(course.name());
-            recordFound.setCategory(Category.FRONT_END);
+            recordFound.setCategory(courseMapper.convertCategoryValue(course.category()));
 
             return courseRepository.save(recordFound);
 
@@ -72,7 +70,7 @@ public class CourseService {
     }
 
     // DELETE
-    public void delete(@PathVariable @NotNull @Positive Long id) {
+    public void delete(@NotNull @Positive Long id) {
 
         courseRepository.delete(courseRepository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException(id)));
