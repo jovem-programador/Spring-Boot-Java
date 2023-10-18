@@ -3,6 +3,7 @@ package com.anderson.crudspring.dto.mapper;
 import org.springframework.stereotype.Component;
 
 import com.anderson.crudspring.dto.CourseDTO;
+import com.anderson.crudspring.enums.Category;
 import com.anderson.crudspring.model.Course;
 
 @Component
@@ -14,7 +15,7 @@ public class CourseMapper {
             return null;
         }
 
-        return new CourseDTO(course.getId(), course.getName(), course.getCategory());
+        return new CourseDTO(course.getId(), course.getName(), "Front-End");
     }
 
     public Course toEntity(CourseDTO courseDTO) {
@@ -30,7 +31,7 @@ public class CourseMapper {
         }
 
         course.setName(courseDTO.name());
-        course.setCategory(courseDTO.category());
+        course.setCategory(Category.FRONT_END);
 
         return course;
     }
